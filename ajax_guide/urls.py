@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app1 import views as app1
+from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',app1.contactPage),
-    path('ajax/contact-submit',app1.contact_submit, name = 'contact_submit'),
-    path('ajax/get_contact_info/',app1.get_contact_info,name = 'get_contact_info')
+    url(r'^ajax/contact-submit/$',app1.contact_submit, name = 'contact_submit'),
+    path(r'^ajax/get_contact_info/$',app1.get_contact_info,name = 'get_contact_info')
 ]
