@@ -19,6 +19,7 @@ def contact_submit(request):
 def get_contact_info(request):
     if(request.is_ajax()):
         username = request.GET.get('username')
+	print(username)
 
         try:
             user = Contact.objects.get(name = username)
